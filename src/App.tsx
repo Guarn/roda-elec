@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Graph from "./Components/Graph";
 import * as S from "./Styled";
 import Menu from "./Components/Menu";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FormBureau from "./Components/FormBureau";
 import { bureaux, bureau1, bureau2, bureau3 } from "../src/firebase";
 
@@ -23,7 +23,6 @@ function App() {
     bureaux.on("value", val => {
       if (!val.val()) {
         let payload = {
-          table: 0,
           serrus: 0,
           postiaux: 0
         };
@@ -40,6 +39,7 @@ function App() {
             objectName.map(el2 => {
               countSerrus += el[el2].serrus;
               countPostiaux += el[el2].postiaux;
+              return null;
             });
             setResultats1(c => ({
               serrus: countSerrus,
@@ -53,6 +53,7 @@ function App() {
             objectName.map(el2 => {
               countSerrus += el[el2].serrus;
               countPostiaux += el[el2].postiaux;
+              return null;
             });
             setResultats2(c => ({
               serrus: countSerrus,
@@ -66,12 +67,14 @@ function App() {
             objectName.map(el2 => {
               countSerrus += el[el2].serrus;
               countPostiaux += el[el2].postiaux;
+              return null;
             });
             setResultats3(c => ({
               serrus: countSerrus,
               postiaux: countPostiaux
             }));
           }
+          return null;
         });
       }
     });

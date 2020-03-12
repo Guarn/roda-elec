@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as S from "./Styled";
 import { bureau1, bureau2, bureau3 } from "../../firebase";
 import { useHistory } from "react-router-dom";
@@ -8,16 +8,14 @@ export interface FormBureauI {
 }
 
 const FormBureau: React.FC<FormBureauI> = ({ numBureau }) => {
-  const [numTable, setNumTable] = useState<number | null>(null);
   const [voteSerrus, setVoteSerrus] = useState<number | null>(null);
   const [votePostiaux, setVotePostiaux] = useState<number | null>(null);
   const [confirm, setConfirm] = useState(false);
   const router = useHistory();
 
   const sendData = () => {
-    if (numTable && voteSerrus && setVotePostiaux) {
+    if (voteSerrus && setVotePostiaux) {
       let payload = {
-        table: numTable,
         serrus: voteSerrus,
         postiaux: votePostiaux
       };
@@ -32,16 +30,18 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau }) => {
           bureau3.push(payload);
           break;
       }
-      setNumTable(null);
       setVotePostiaux(null);
       setVoteSerrus(null);
       setConfirm(false);
       router.push("/");
     }
   };
+  const handleBack = () => {
+    setConfirm(false);
+  };
 
   const verifForm = () => {
-    if (numTable && voteSerrus && setVotePostiaux) {
+    if (voteSerrus && setVotePostiaux) {
       setConfirm(true);
     }
   };
@@ -53,35 +53,7 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau }) => {
             <S.Titre>Bureau {numBureau}</S.Titre>
             <S.SousTitre>{bureaux[numBureau]}</S.SousTitre>
           </S.TitreCtn>
-          <S.TableCtn>
-            <S.TitreNumero>Numéro de table</S.TitreNumero>
-            <S.NumeroTableCtn>
-              <S.Table
-                onClick={() => setNumTable(1)}
-                isSelected={numTable === 1}
-              >
-                1
-              </S.Table>
-              <S.Table
-                onClick={() => setNumTable(2)}
-                isSelected={numTable === 2}
-              >
-                2
-              </S.Table>
-              <S.Table
-                onClick={() => setNumTable(3)}
-                isSelected={numTable === 3}
-              >
-                3
-              </S.Table>
-              <S.Table
-                onClick={() => setNumTable(4)}
-                isSelected={numTable === 4}
-              >
-                4
-              </S.Table>
-            </S.NumeroTableCtn>
-          </S.TableCtn>
+
           <S.BlocCandidat>
             <S.NomCandidat>Postiaux</S.NomCandidat>
             <S.InputNom
@@ -105,11 +77,9 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau }) => {
       )}
       {confirm && (
         <S.ConfirmCtn>
-          <S.RecapAnnul>Retour</S.RecapAnnul>
+          <S.RecapAnnul onClick={handleBack}>Retour</S.RecapAnnul>
           <S.TitreRecap>Bureau {numBureau}</S.TitreRecap>
-          <S.Recap>
-            Table <b>{numTable}</b>
-          </S.Recap>
+
           <S.Recap>
             Postiaux : <b>{votePostiaux}</b> votes
           </S.Recap>

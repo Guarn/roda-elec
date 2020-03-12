@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./Styled";
-import { Link, BrowserRouter as Router, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export interface MenuI {}
 

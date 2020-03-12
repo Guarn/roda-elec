@@ -121,6 +121,9 @@ function App() {
           <Route path="/Bureau3">
             <FormBureau numBureau={3} />
           </Route>
+          <Route path="/Raz">
+            <button onClick={() => bureaux.remove()}>Reset</button>
+          </Route>
         </Switch>
       </S.ConteneurGlobal>
     </Router>

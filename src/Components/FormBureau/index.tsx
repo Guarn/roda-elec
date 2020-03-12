@@ -14,7 +14,12 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau }) => {
   const router = useHistory();
 
   const sendData = () => {
-    if (voteSerrus && setVotePostiaux) {
+    if (
+      voteSerrus !== null &&
+      voteSerrus >= 0 &&
+      votePostiaux !== null &&
+      votePostiaux >= 0
+    ) {
       let payload = {
         serrus: voteSerrus,
         postiaux: votePostiaux
@@ -41,7 +46,12 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau }) => {
   };
 
   const verifForm = () => {
-    if (voteSerrus && setVotePostiaux) {
+    if (
+      voteSerrus !== null &&
+      voteSerrus >= 0 &&
+      votePostiaux !== null &&
+      votePostiaux >= 0
+    ) {
       setConfirm(true);
     }
   };

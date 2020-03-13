@@ -11,7 +11,7 @@ export interface GraphI {
 const Graph: React.FC<GraphI> = ({ resultats, mini = false }) => {
   const getTotalVotes = () => resultats.postiaux + resultats.serrus;
   return (
-    <S.GraphCtn>
+    <S.GraphCtn mini={mini}>
       <Liste
         candidat="Postiaux"
         votes={resultats.postiaux}

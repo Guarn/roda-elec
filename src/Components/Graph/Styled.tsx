@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const GraphCtn = styled.div`
+interface GraphCtnI {
+  mini?: boolean;
+}
+
+export const GraphCtn = styled.div<GraphCtnI>`
   flex: 2;
   height: 90%;
-  width: 90%;
+  width: ${props => (props.mini ? "100%" : "90%")};
   display: flex;
   align-items: flex-end;
   border-bottom: 2px solid lightgray;

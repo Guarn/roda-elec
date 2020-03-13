@@ -12,7 +12,6 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau, listeOp }) => {
   const [voteSerrus, setVoteSerrus] = useState<number | null>(null);
   const [votePostiaux, setVotePostiaux] = useState<number | null>(null);
   const [confirm, setConfirm] = useState<"init" | "open" | "close">("init");
-  const router = useHistory();
   const ref1 = useRef<HTMLInputElement>(null);
   const ref2 = useRef<HTMLInputElement>(null);
   const sendData = () => {
@@ -111,6 +110,7 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau, listeOp }) => {
               <S.InputCandidat
                 ref={ref1}
                 type="number"
+                value={votePostiaux || ""}
                 onChange={e => setVotePostiaux(parseInt(e.target.value))}
               />
             </S.BlocSerrus>
@@ -120,6 +120,7 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau, listeOp }) => {
               <S.InputCandidat
                 ref={ref2}
                 type="number"
+                value={voteSerrus || ""}
                 onChange={e => setVoteSerrus(parseInt(e.target.value))}
               />
             </S.BlocPostiaux>

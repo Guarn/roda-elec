@@ -203,18 +203,18 @@ export const BlocFormulaire = styled.div<BlocFormulaireI>`
     300ms ease-in-out forwards;
   @keyframes ouverture {
     0% {
-      height: 0%;
+      height: 0px;
     }
     100% {
-      height: 100%;
+      height: 250px;
     }
   }
   @keyframes fermeture {
     0% {
-      height: 100%;
+      height: 250px;
     }
     100% {
-      height: 0%;
+      height: 0px;
     }
   }
 `;

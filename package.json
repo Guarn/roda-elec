@@ -28,7 +28,7 @@
     "typescript-plugin-styled-components": "^1.4.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

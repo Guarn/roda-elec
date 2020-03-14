@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import * as S from "./Styled";
 import { bureau1, bureau2, bureau3 } from "../../firebase";
-import { useHistory } from "react-router-dom";
 
 export interface FormBureauI {
   numBureau: number;
@@ -62,7 +61,11 @@ const FormBureau: React.FC<FormBureauI> = ({ numBureau, listeOp }) => {
   const getTime = (a: number) => {
     let t = Math.floor((Date.now() - a) / 1000);
     if (t > 60) {
-      return Math.floor((Date.now() - a) / 1000 / 60) + "m";
+      if (t > 3600) {
+        return Math.floor((Date.now() - a) / 1000 / 60 / 60) + "h";
+      } else {
+        return Math.floor((Date.now() - a) / 1000 / 60) + "m";
+      }
     } else {
       return t + "s";
     }

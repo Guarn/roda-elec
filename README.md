@@ -4,6 +4,6 @@
 </p>
 
 <p align="center">
-  <h2>Suivre l'évolution de l'élection à la Roque d'Anthéron</h2>
+  <h2 align="center" >Suivre l'évolution de l'élection à la Roque d'Anthéron</h2>
 </p>
 <br/>

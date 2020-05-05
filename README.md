@@ -14,7 +14,7 @@ Roda-Elec permet à plusieurs asseseurs de tenir le compte des votes tout en res
 
 ### Essayer
 
-Une version est publiée sur heroku : (Roda-Elec)[https://roda-elec.herokuapp.com].
+Une version est publiée sur heroku : [Roda-Elec](https://roda-elec.herokuapp.com).
 
 ### Technologies
 

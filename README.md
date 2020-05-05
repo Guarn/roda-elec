@@ -10,7 +10,7 @@
 </p>
 <br/>
 
-Roda-Elec permet à plusieurs asseseurs de tenir le compte des votes tout en restant informés de l'évolution de situation. Le compte des voix est géré par les websockets afin d'avoir une information toujours pertinente.
+Roda-Elec permet à plusieurs asseseurs de tenir le compte des votes tout en restant informés de l'évolution de situation. Le compte des voix est géré par websockets afin d'avoir une information toujours pertinente.
 
 ### Infos
 

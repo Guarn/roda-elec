@@ -22,4 +22,4 @@ Une version est publiée sur heroku : [Roda-Elec](https://roda-elec.herokuapp.co
 
 ### Technologies
 
-Reactjs + Typescript + Firebase + Websockets
+Express + Reactjs + Typescript + Firebase + Websockets
